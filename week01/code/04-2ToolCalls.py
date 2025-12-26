@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 
 # 加载环境变量
 load_dotenv()
-api_key= os.getenv('OPENAI_API_KEY')   
-base_url = os.getenv('OPENAI_API_BASE')
+api_key= os.getenv('MOONSHOT_API_KEY')   
+base_url = os.getenv('MOONSHOT_BASE_URL')
+model_name = os.getenv('KIMI_MODEL')
 
 # 初始化 OpenAI 客户端
 client = OpenAI(
@@ -42,7 +43,7 @@ messages = [
 
 # 2. 使用定义的工具提示模型
 response = client.chat.completions.create(
-    model="gpt-4o-mini",
+    model=model_name,
     tools=tools,
     messages=messages,
 )
@@ -90,7 +91,7 @@ for i, message in enumerate(messages):
 
 
 response = client.chat.completions.create(
-    model="gpt-4o-mini",
+    model=model_name,
     tools=tools,
     messages=messages,
 )
