@@ -1,0 +1,10 @@
+crewai
+crewai-tools
+langchain_openai
+python-dotenv
+pyyaml
+redis
+grpcio
+grpcio-tools
+protobuf
+

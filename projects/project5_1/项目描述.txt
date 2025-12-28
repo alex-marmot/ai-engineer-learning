@@ -1,0 +1,26 @@
+实践一：开发一个基于 MCP 协议的多 Agent 协作系统
+输入输出定义：
+输入：用户问题（如“帮我写一篇关于 AI Agent 的文章”）
+输出：多个 Agent 协作完成研究、撰写、审核、润色等任务
+
+CrewAI
+search ?  tool calling  MCP
+HITL Human In The Loop
+
+
+Agent1： 搜索 研究
+Agent2： 撰写
+Agent3:  审核、润色
+
+流程：
+
+1 Human ：  文章主题、文章要求
+2 Agent1：  搜索  ->   大纲 目录
+3 Human ：  if 确认  or  修改
+4 Agent2：  写第1章
+5 Human ：  if 确认  or  修改
+6 Agent2：  写第2章
+7 Human ：  if 确认  or  修改
+... ...
+n Agent3:  审核、润色  - >  最终稿
+n+1 Human ：  if 确认  or  修改

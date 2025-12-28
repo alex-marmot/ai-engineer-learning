@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package task;
+
+service TaskService {
+  rpc ReportResult (stream TaskResult) returns (stream TaskAck);
+}
+
+message TaskResult {
+  string task_id = 1;
+  enum Status {
+    SUCCESS = 0;
+    FAILURE = 1;
+    RETRY = 2;
+  }
+  Status status = 2;
+  string result_data_json = 3;
+  string timestamp = 4;
+}
+
+message TaskAck {
+  string task_id = 1;
+  bool received = 2;
+}

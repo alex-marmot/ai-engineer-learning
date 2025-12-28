@@ -1,0 +1,58 @@
+research_task:
+  description: >
+    用户想要制作关于"{topic}"的课程，要求如下："{requirements}"。
+    请搜索相关在线资料和当前趋势。
+    提出3个独特的课程方向/主题。
+    对于每个方向，请提供：
+    1. 标题
+    2. 目标受众
+    3. 简要描述
+    4. 关键学习成果
+    
+    请确保输出清晰易读，使用中文。
+  expected_output: >
+    包含3个课程提案的列表。
+  agent: xiao_mei
+
+outline_task:
+  description: >
+    用户想要制作关于"{topic}"的课程，要求如下："{requirements}"。
+    基于选定的方向："{chosen_direction}"，创建一个详细的课程大纲。
+    大纲应包含章节列表（至少3章，目前最多5章）。
+    对于每一章，请提供标题和内容的简要摘要。
+    
+    重要：请将输出格式化为JSON字符串，键为"chapters"，包含一个对象列表，
+    每个对象具有"title"（标题）和"summary"（摘要）字段。
+    不要在JSON中添加markdown格式。
+    JSON 示例: {{"chapters": [{{"title": "第一章...", "summary": "..."}}, ...]}}
+  expected_output: >
+    JSON格式的课程大纲。
+  agent: xiao_qing
+
+chapter_writing_task:
+  description: >
+    用户想要制作关于"{topic}"的课程，要求如下："{requirements}"。
+    编写第 {chapter_index} 章的内容："{chapter_title}"。
+    摘要：{chapter_summary}
+    背景：这是课程"{course_title}"的一部分。
+    请为这一章编写一篇全面、引人入胜且具有教育意义的文章。使用中文。
+  expected_output: >
+    Markdown格式的完整章节内容。
+  agent: xiao_qing
+
+review_task:
+  description: >
+    用户想要制作关于"{topic}"的课程，要求如下："{requirements}"。
+    审核以下课程内容，课程名称："{course_title}"。
+    内容：
+    {course_content}
+    
+    检查项：
+    1. 是否符合最初的方向："{chosen_direction}"
+    2. 语法和风格错误。
+    3. 清晰度和流畅度。
+    
+    请提供一份包含改进建议的审核报告，如果内容很好则给予批准。使用中文。
+  expected_output: >
+    审核报告。
+  agent: xiao_yin
